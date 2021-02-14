@@ -46,12 +46,12 @@
     git:
      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello
      clone: yes
-     dest: .
+     dest: /tmp
 
   - name: Build java application
     shell: mvn package
     args:    
-     chdir: boxfuse-sample-java-war-hello
+     chdir: /tmp/boxfuse-sample-java-war-hello
 
 
     
