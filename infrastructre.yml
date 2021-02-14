@@ -61,13 +61,16 @@
   - name: Fetch war file to master from staging
     run_once: yes
     fetch: 
-     src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
+     src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war 
      dest: /tmp
+     flat: yes
+     when: "{{ inventory_hostname == 'host2'}}"
   
   - name: Copy the file from master to production
     copy: 
      src: /tmp/hello-1.0.war
      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+     when: "{{ inventory_hostname == 'host3'}}"
      
      
 
