@@ -46,6 +46,7 @@
     git:
      repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello
      clone: yes
+     dest: .
 
   - name: Build java application
     shell: mvn package
