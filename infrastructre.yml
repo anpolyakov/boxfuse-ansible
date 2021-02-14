@@ -1,0 +1,35 @@
+# 1. Install Maven on staging host
+# 2. Install tomcat on production host
+# 3. Build java app
+# 4. Copy artefact to production server
+
+---
+- name: Install Maven
+  hosts: staging
+  become: yes
+
+  tasks:
+  - name: Ensure openJDK is present
+    apt:
+     name: default-jdk
+     state: present
+
+  - name: Ensure maven is present
+    apt:
+     name: maven
+     state: present
+
+- name: Install Tomcat
+  hosts: production
+  become: yes
+  
+  tasks:
+  - name: Ensure tomcat is present
+    apt:
+     name: tomcat
+     state: present
+
+  - name: Ensure tomcat service is running
+    service:
+     name: tomcat
+     state: running
