@@ -58,9 +58,10 @@
   become: yes
 
   tasks:
+
   - name: Fetch war file to master from staging
     run_once: yes
-    shell: scp root@host2:/tmp/boxfuse-sample-java-war-hello/hello-1.0.war host3:/var/lib/tomcat9/webapps/hello-1.0.war
+    shell: scp root@devops-instance-2:/tmp/boxfuse-sample-java-war-hello/hello-1.0.war /var/lib/tomcat9/webapps/hello-1.0.war
      
      
      
