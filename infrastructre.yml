@@ -49,9 +49,22 @@
      dest: /tmp/boxfuse-sample-java-war-hello
 
   - name: Build procces java application
-    shell: mvn package
-    args:    
-     chdir: /tmp/boxfuse-sample-java-war-hello
+     shell: mvn package
+     args:    
+      chdir: /tmp/boxfuse-sample-java-war-hello
+
+- name: Copy artefact to production server
+  hosts: production
+  become: yes
+
+  tasks:
+  - name: Copy war file to production server
+    synchronize:
+      src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
+      dest: /var/lib/tomcat9/webapps/hello-1.0.war
+      delegate_to: staging
+     
+     
 
 
     
