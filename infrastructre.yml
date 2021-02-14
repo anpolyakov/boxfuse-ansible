@@ -37,8 +37,8 @@
      name: tomcat9
      state: started
 
-- name: Run java application
-  hosts: production
+- name: Build java application
+  hosts: staging
   become: yes
 
   tasks:
@@ -48,7 +48,7 @@
      clone: yes
      dest: /tmp/boxfuse-sample-java-war-hello
 
-  - name: Build java application
+  - name: Build procces java application
     shell: mvn package
     args:    
      chdir: /tmp/boxfuse-sample-java-war-hello
