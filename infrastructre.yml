@@ -12,11 +12,13 @@
   - name: Ensure openJDK is present
     apt:
      name: default-jdk
+     update_cache: yes
      state: present
 
   - name: Ensure maven is present
     apt:
      name: maven
+     update_cache: yes
      state: present
 
 - name: Install Tomcat
@@ -27,6 +29,7 @@
   - name: Ensure tomcat is present
     apt:
      name: tomcat
+     update_cache: yes
      state: present
 
   - name: Ensure tomcat service is running
