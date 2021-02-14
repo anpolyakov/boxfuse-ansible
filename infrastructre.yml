@@ -59,7 +59,6 @@
 
   tasks:
   - name: Fetch war file to master from staging
-    synchronize:
     run_once: yes
     fetch: 
      src: /tmp/boxfuse-sample-java-war-hello/target/hello-1.0.war
