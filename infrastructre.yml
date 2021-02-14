@@ -50,8 +50,8 @@
 
   - name: Build procces java application
      shell: mvn package
-     args:    
-      chdir: /tmp/boxfuse-sample-java-war-hello
+      args:    
+       chdir: /tmp/boxfuse-sample-java-war-hello
 
 - name: Copy artefact to production server
   hosts: production
